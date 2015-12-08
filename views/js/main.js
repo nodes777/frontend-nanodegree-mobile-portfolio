@@ -494,16 +494,16 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var imageArray = [];
-  var moverItems = document.querySelectorAll('.mover');
-  for (var i = 0; i < moverItems.length; i++) {
-    moverItems[i].push(imageArray);
-  }
+  
+  var moverItems = document.getElementsByClassName('mover');
+  var imageArray = Array.prototype.slice.call(moverItems);
+
   for (var i = 0; i < imageArray.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i / 5));
     imageArray[i].style.left = imageArray[i].basicLeft + 100 * phase + 'px';
   }
 //perf issue here
+console.count('updatePositons function called');
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
@@ -521,7 +521,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 25; i++) { //reduced pizzas from 200 to 25
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
