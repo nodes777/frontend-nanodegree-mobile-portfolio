@@ -498,9 +498,13 @@ function updatePositions() {
   var moverItems = document.getElementsByClassName('mover');
   var imageArray = Array.prototype.slice.call(moverItems);
 
+for (var i = 0; i < imageArray.length; i++) {
+  var phase = Math.sin((document.body.scrollTop / 1250) + (i / 5));
+  var newPosition = imageArray[i].basicLeft + 100 * phase + 'px';
+    }
+  
   for (var i = 0; i < imageArray.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i / 5));
-    imageArray[i].style.left = imageArray[i].basicLeft + 100 * phase + 'px';
+    imageArray[i].style.left = newPosition;
   }
 //perf issue here
 console.count('updatePositons function called');
@@ -521,7 +525,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 25; i++) { //reduced pizzas from 200 to 25
+  for (var i = 0; i < 25; i++) { //reduced pizzas from 200 to 25????
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
