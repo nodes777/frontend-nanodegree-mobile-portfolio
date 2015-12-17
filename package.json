@@ -1,0 +1,29 @@
+{
+  "name": "frontend-nanodegree-mobile-portfolio",
+  "version": "1.0.0",
+  "description": "mobile portfolio for Udacity course",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodes777/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "keywords": [
+    "optimization",
+    "framerate",
+    "pizza",
+    "gulp"
+  ],
+  "author": "Taylor Nodell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nodes777/frontend-nanodegree-mobile-portfolio/issues"
+  },
+  "homepage": "https://github.com/nodes777/frontend-nanodegree-mobile-portfolio#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-imagemin": "^2.4.0"
+  }
+}
