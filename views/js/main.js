@@ -500,7 +500,7 @@ function updatePositions() {
   var imageArrayLength = imageArray.length;
 
 for (var i = 0, len = moverItems.length; i < len; i++) {
-  var phase = Math.sin((document.body.scrollTop / 1250) + (i / 5));
+  var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
   moverItems[i].style.left = moverItems[i].basicLeft + 100 * phase + 'px';
 }
 

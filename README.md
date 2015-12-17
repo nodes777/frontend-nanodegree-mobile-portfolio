@@ -24,6 +24,13 @@ This project showcases my ability to take a jank filled website and speed it up 
 	5. Moved variable declaration outside of loops
 	6. Slice function was removed, since it removed context
 
+####Part 4: Gulp Minification and Compression
+	1. Installed gulp
+	2. Added imagemin and pngquant
+	3. Gulped with 41 kb saved (6.8%)
+	4. Manually scaled image in GiMP
+	5. Gulped with no additional compression
+
 ### Sample Portfolios
 
 Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
