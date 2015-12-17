@@ -461,7 +461,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-var pizzasDiv = document.getElementById("randomPizzas");
+var pizzasDiv = document.getElementById("randomPizzas"); // pull variables out of loops so they're not created each loop
 for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -495,11 +495,9 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   
-  var moverItems = document.getElementsByClassName('mover');
-  var imageArray = Array.prototype.slice.call(moverItems);
-  var imageArrayLength = imageArray.length;
+  var moverItems = document.getElementsByClassName('mover');//getElementsByClassName is faster than document query
 
-for (var i = 0, len = moverItems.length; i < len; i++) {
+for (var i = 0, len = moverItems.length; i < len; i++) {// removed layout thrashing by batching all reads of DOM, then batching all writes
   var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
   moverItems[i].style.left = moverItems[i].basicLeft + 100 * phase + 'px';
 }
